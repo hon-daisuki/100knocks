@@ -1,29 +1,20 @@
 import sys
 
 def main():
-    # コマンドライン引数の数をチェック（スクリプト名も含まれているため、最低1つはある）
-    if len(sys.argv) < 2:
-        print("エラー: 数字を引数として1つ入力してください（例: python script.py 0）")
-        return
+    
+    args = sys.argv[1:]
 
-    # 引数を数値として取得（例外処理付き）
-    try:
-        arg = int(sys.argv[1])
-    except ValueError:
-        print("エラー: 数値を入力してください")
-        return
 
-    # 条件分岐して出力
-    if arg == 0:
-        print("0が入力されました")
-    elif arg == 1:
-        print("1が入力されました")
-    elif arg == 2:
-        print("2が入力されました")
-    elif arg == 3:
-        print("3が入力されました")
+    if len(args) == 0:
+        print("【無限城の石畳】何も手にしていない。")
+    elif len(args) == 1:
+       print(f"【鬼の間】一つ目の武器を構えた: {args[0]}")
+    elif len(args) == 2:
+       print(f"【闇の通路】二つの武器を構えた: {args[0]}, {args[1]}")
+    elif len(args) == 3:
+       print(f"【玉座の間】三つの力を解放した: {args[0]}, {args[1]}, {args[2]}")
     else:
-        print("0〜3の範囲で入力してください")
+       print("【錯乱の間】持ち物が多すぎる！力を制御できない…")
 
 if __name__ == "__main__":
     main()
